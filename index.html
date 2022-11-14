@@ -90,6 +90,22 @@
     //load data to the map as new layers and table on the side.
     map.on('load', function loadingData() {
 
+
+    map.addSource('seattle', {
+        type: 'geojson',
+        data: seattle
+    });
+
+    map.addLayer({
+        'id': 'seattle-layer',
+        'type': 'fill',
+        'source': 'seattle',
+        'paint': {
+            'fill-color': '#0080ff', // blue color fill
+            'fill-opacity': 0.5
+        }
+    });
+
     map.addSource('masonry', {
         type: 'geojson',
         data: masonry
@@ -107,21 +123,6 @@
         }
     });
 
-
-    map.addSource('seattle', {
-        type: 'geojson',
-        data: seattle
-    });
-
-    map.addLayer({
-        'id': 'seattle-layer',
-        'type': 'fill',
-        'source': 'seattle',
-        'paint': {
-            'fill-color': '#0080ff', // blue color fill
-            'fill-opacity': 0.5
-        }
-    });
 
     });
 
